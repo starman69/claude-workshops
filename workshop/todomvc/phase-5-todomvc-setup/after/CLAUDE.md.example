@@ -1,0 +1,22 @@
+# TodoMVC React — Project Memory
+
+This is what `/init` should produce (tweak to match reality).
+
+## Stack
+- React 17 (upgrade target for Track A: React 18+)
+- Jest + React Testing Library
+- CRA or Vite (confirm)
+
+## Commands
+- `npm ci`, `npm test`, `npm run lint`, `npm run build`, `npm run dev`
+
+## Conventions
+- Components in `src/components/`
+- Co-located `*.test.jsx` or `*.test.tsx`
+
+## Known pitfalls
+- TodoMVC spec tests are strict — don't change URL fragment routing
+- Current canonical example has no persistence (`useReducer` only) — adding it is a valid Track B feature
+
+## Don't touch
+- `node_modules/`, `build/`, `dist/`

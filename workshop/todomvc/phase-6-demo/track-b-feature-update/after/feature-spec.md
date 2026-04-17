@@ -1,0 +1,21 @@
+# Feature Spec — AFTER (example: Dark Mode Toggle)
+
+- **Feature name:** Dark mode toggle
+- **User story:** As a user, I want to toggle a dark theme, so that I can use TodoMVC in low light without eye strain.
+- **Acceptance criteria:**
+  - [ ] Toggle button visible in header
+  - [ ] Clicking toggles between `light` and `dark` themes via CSS variables
+  - [ ] Preference persists across reloads (localStorage key: `todomvc-theme`)
+  - [ ] Initial load respects `prefers-color-scheme` media query if no preference saved
+  - [ ] All existing TodoMVC spec tests still pass
+- **Files likely to change:**
+  - `src/App.tsx` (add theme provider/state)
+  - `src/components/Header.tsx` (add toggle button)
+  - `src/index.css` (CSS variables for both themes)
+- **New files:**
+  - `src/hooks/useTheme.ts`
+  - `src/hooks/useTheme.test.ts`
+- **Risks:**
+  - Breaking snapshot tests — review each snapshot diff intentionally
+  - localStorage quota (negligible for one string)
+  - SSR (n/a for TodoMVC — client-only)

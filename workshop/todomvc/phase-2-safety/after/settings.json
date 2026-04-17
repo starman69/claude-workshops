@@ -1,0 +1,67 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm test*)",
+      "Bash(npm run lint*)",
+      "Bash(npm run typecheck*)",
+      "Bash(npm run build*)",
+      "Bash(npm ci)",
+      "Bash(npm install)",
+      "Bash(git status*)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(git add*)",
+      "Bash(git branch*)",
+      "Bash(ls*)",
+      "Read(**/*.js)",
+      "Read(**/*.jsx)",
+      "Read(**/*.ts)",
+      "Read(**/*.tsx)",
+      "Read(**/*.json)",
+      "Read(**/*.md)"
+    ],
+    "deny": [
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Read(**/.envrc)",
+      "Read(**/*.pem)",
+      "Read(**/*.key)",
+      "Read(**/id_rsa)",
+      "Read(**/id_rsa.pub)",
+      "Read(**/.ssh/**)",
+      "Read(**/secrets/**)",
+      "Read(**/credentials.json)",
+      "Read(**/credentials*)",
+      "Read(**/.aws/**)",
+      "Read(**/.gcp/**)",
+      "Read(**/.netrc)",
+      "Edit(**/.env)",
+      "Edit(**/.env.*)",
+      "Edit(**/.envrc)",
+      "Write(**/.env)",
+      "Write(**/.env.*)",
+      "Write(**/.envrc)",
+      "Bash(cat .env*)",
+      "Bash(cat **/.env*)",
+      "Bash(env)",
+      "Bash(printenv*)",
+      "Bash(export*)",
+      "Bash(rm -rf /*)",
+      "Bash(git push --force*)",
+      "Bash(git reset --hard*)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Read|Edit|Write|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/block-secrets.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

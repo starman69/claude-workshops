@@ -1,0 +1,30 @@
+---
+description: <short description shown in /help — one sentence>
+argument-hint: <placeholder for args, or remove this line if no args>
+allowed-tools: <comma-separated tool allow-list, e.g. Read, Grep>
+---
+
+# <Command name as markdown header>
+
+<Prompt body — what Claude runs when the slash command is invoked.
+Use $ARGUMENTS to reference whatever the user typed after /command-name.>
+
+## Framing
+
+<Authorized-training framing if the command touches a security target.>
+
+## Steps
+
+1. <step one>
+2. <step two>
+
+## Output format
+
+```
+<describe the expected output shape>
+```
+
+## Do not
+
+- <explicit guardrails — tools to avoid, behaviors to refuse>
+- <for security commands: no working payloads, no non-local targets>

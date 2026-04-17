@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Helper the audit-route Skill can call to find which file registers a given
+# route. Non-destructive: grep only, no network, no edits.
+#
+# Usage:    scripts/audit-route.sh <METHOD> <PATH>
+# Example:  scripts/audit-route.sh POST /rest/user/login
+
+set -euo pipefail
+
+METHOD="${1:?usage: $0 <METHOD> <PATH>}"
+ROUTE="${2:?usage: $0 <METHOD> <PATH>}"
+
+METHOD_LOWER="$(echo "$METHOD" | tr 'A-Z' 'a-z')"
+
+# Search for `app.METHOD(` or `router.METHOD(` with the literal path
+grep -rn -E "(app|router)\.${METHOD_LOWER}\(['\"]${ROUTE}['\"]" \
+  --include='*.ts' --include='*.js' \
+  server.ts routes/ lib/ 2>/dev/null \
+  || echo "no registration found for ${METHOD} ${ROUTE}"

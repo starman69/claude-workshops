@@ -1,0 +1,25 @@
+// Illustrative — the vulnerable shape of the login handler.
+// Actual Juice Shop code differs; read your checkout for the authoritative version.
+
+import { Request, Response, NextFunction } from 'express'
+import * as models from '../models'
+import * as security from '../lib/insecurity'
+
+export function login () {
+  return (req: Request, res: Response, next: NextFunction) => {
+    // 🚩 string concatenation → SQL injection
+    const q =
+      "SELECT * FROM Users WHERE email = '" + req.body.email + "' " +
+      "AND password = '" + security.hash(req.body.password) + "' " +
+      "AND deletedAt IS NULL"
+
+    models.sequelize.query(q)
+      .then(([users]: any) => {
+        const user = users[0]
+        if (!user) return res.status(401).send({ error: 'Invalid credentials' })
+        const token = security.authorize(user)
+        res.json({ authentication: { token, bid: user.id, umail: user.email } })
+      })
+      .catch(next)
+  }
+}

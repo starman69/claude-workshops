@@ -1,0 +1,29 @@
+# OWASP Juice Shop — Project Memory (post-/init example)
+
+> **Authorized training only.** Juice Shop is an intentionally vulnerable app. Do not repurpose findings against systems you don't own.
+
+## Stack
+- Node 20.x / 22.x / 24.x, TypeScript (Juice Shop v19+ dropped Node 18)
+- Express (backend), Angular (frontend)
+- SQLite via Sequelize
+- Frisby + Cypress
+
+## Commands
+- `npm install`, `npm start`, `npm test`, `npm run frisby`, `npm run cypress:open`, `npm run lint`
+
+## Key directories
+- `routes/`, `lib/` — backend route handlers and helpers
+- `models/` — Sequelize models
+- `data/static/*.yml` — challenge registry + seed data
+- `frontend/src/app/` — Angular app
+- `test/` — Frisby specs
+
+## Intentional gotchas (don't "fix" without a learner-patch exercise)
+- Hardcoded weak JWT secret
+- Sample `.env` with dummy values
+- Known-bad SQL patterns in login / search
+- Score-board at `/#/score-board` tracks which challenges you've solved
+
+## Don't touch
+- `node_modules/`, `build/`, `dist/`, `frontend/dist/`
+- `data/juicer.sqlite` (regenerated at startup)

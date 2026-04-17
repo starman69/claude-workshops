@@ -1,0 +1,36 @@
+---
+name: <skill-name-kebab-case>
+description: <when and how Claude should reach for this Skill — Claude matches against this>
+---
+
+# <Skill name as markdown header>
+
+## Framing
+
+<Authorized-training framing if the Skill operates on security-sensitive code.>
+
+## When to use
+
+<Conditions that trigger this Skill.>
+
+## What it does
+
+<High-level description and the artifacts it produces.>
+
+## Steps
+
+1. <step one>
+2. <step two>
+
+## Guardrails
+
+- <project-specific rules the Skill must follow>
+
+## Supporting files
+
+- `scripts/<helper>.sh` — <what it does>
+- `<template>.md` — <if the Skill emits into a structured output file>
+
+## Do not
+
+- <explicit anti-behaviors>

@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Optional helper the scaffold-feature Skill can invoke to create empty file
+# skeletons. Claude fills them in after this runs.
+#
+# Usage (inside the target repo):  scripts/scaffold-feature.sh <FeatureName>
+
+set -euo pipefail
+
+NAME="${1:?usage: $0 <FeatureName>}"
+
+# FeatureName must be PascalCase
+[[ "$NAME" =~ ^[A-Z][A-Za-z0-9]*$ ]] || { echo "FeatureName must be PascalCase" >&2; exit 2; }
+
+COMP="src/components/${NAME}.tsx"
+TEST="src/components/${NAME}.test.tsx"
+
+# Refuse to overwrite
+[ -e "$COMP" ] && { echo "$COMP exists — refusing to overwrite" >&2; exit 2; }
+[ -e "$TEST" ] && { echo "$TEST exists — refusing to overwrite" >&2; exit 2; }
+
+mkdir -p "$(dirname "$COMP")"
+touch "$COMP" "$TEST"
+echo "created $COMP"
+echo "created $TEST"

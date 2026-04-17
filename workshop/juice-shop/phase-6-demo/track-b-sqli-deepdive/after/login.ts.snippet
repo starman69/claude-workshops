@@ -1,0 +1,34 @@
+// Illustrative fix — parameterized query + input validation.
+// Keep the diff small so learners can see exactly what changed.
+
+import { Request, Response, NextFunction } from 'express'
+import * as models from '../models'
+import * as security from '../lib/insecurity'
+
+// 1. Lightweight input validator — reject obviously malformed emails early.
+//    In a real fix, use a vetted schema validator (Joi / zod) instead of a regex.
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+export function login () {
+  return (req: Request, res: Response, next: NextFunction) => {
+    const email = typeof req.body?.email === 'string' ? req.body.email.trim() : ''
+    const password = typeof req.body?.password === 'string' ? req.body.password : ''
+
+    if (!EMAIL_RE.test(email) || email.length > 254 || password.length === 0) {
+      return res.status(400).send({ error: 'Invalid credentials' })
+    }
+
+    // 2. Parameterized query — user input never becomes SQL syntax.
+    models.sequelize.query(
+      'SELECT * FROM Users WHERE email = ? AND password = ? AND deletedAt IS NULL',
+      { replacements: [email, security.hash(password)] }
+    )
+      .then(([users]: any) => {
+        const user = users[0]
+        if (!user) return res.status(401).send({ error: 'Invalid credentials' })
+        const token = security.authorize(user)
+        res.json({ authentication: { token, bid: user.id, umail: user.email } })
+      })
+      .catch(next)
+  }
+}
