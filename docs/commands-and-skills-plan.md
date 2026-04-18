@@ -12,7 +12,7 @@
 **Prerequisites — not optional:**
 
 - **Phases 1–5 of the TodoMVC or Juice Shop workshop must be complete** for whichever target(s) you plan to work against. That means: Claude Code installed and authenticated, the target repo cloned and running locally, `CLAUDE.md` at the repo root, `.claude/settings.json` with the hardened allow/deny lists, `.claude/hooks/block-secrets.sh` installed and executable, and a baseline recorded.
-- **You must be comfortable with Phase 4 of the primary workshop:** `Grep`, `Read`, plan mode, subagents, slash commands.
+- **You must be comfortable with Phase 5 of the primary workshop:** `Grep`, `Read`, plan mode, subagents, slash commands.
 - Phases 1–5 of this workshop are **prerequisite checks** (~25 minutes total), not setup walkthroughs. If a check fails, you go back to the primary workshop — not forward.
 
 ---

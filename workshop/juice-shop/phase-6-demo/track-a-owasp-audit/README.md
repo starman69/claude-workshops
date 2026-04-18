@@ -8,7 +8,7 @@
 ## Workflow
 
 1. **Plan mode:** ask Claude to outline an audit plan — one pass per OWASP 2021 category (A01–A10). Get the list of file areas it plans to inspect before executing.
-2. **Breadth pass:** for each category, spawn an `Explore` subagent (or use `Grep`/`Read` inline) to locate **candidate** code paths. Reuse the auth map from Phase 4 Exercise 4.
+2. **Breadth pass:** for each category, spawn an `Explore` subagent (or use `Grep`/`Read` inline) to locate **candidate** code paths. Reuse the auth map from Phase 5 Exercise 4.
 3. **Describe, don't weaponize.** For each finding record:
    - Category (A01 … A10)
    - Description (one sentence)

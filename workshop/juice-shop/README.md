@@ -15,10 +15,10 @@ This folder is reference material. Clone Juice Shop into a sibling folder **outs
 | Phase | Folder | Has before/after? |
 |-------|--------|-------------------|
 | 1. Install & Authenticate | `phase-1-install/` | — (activity) |
-| 2. Safety & Permissions | `phase-2-safety/` | ✅ |
-| 3. Project Memory | `phase-3-memory/` | ✅ |
-| 4. Core Workflows | `phase-4-workflows/` | — (exercises) |
-| 5. Juice Shop Setup | `phase-5-juice-shop-setup/` | ✅ |
+| 2. Juice Shop Setup | `phase-2-juice-shop-setup/` | ✅ |
+| 3. Safety & Permissions | `phase-3-safety/` | ✅ |
+| 4. Project Memory | `phase-4-memory/` | ✅ |
+| 5. Core Workflows | `phase-5-workflows/` | — (exercises) |
 | 6a. OWASP Top 10 Audit | `phase-6-demo/track-a-owasp-audit/` | ✅ |
 | 6b. SQLi Deep Dive | `phase-6-demo/track-b-sqli-deepdive/` | ✅ |
 | 7. Review & Commit | `phase-7-review/` | — (activity) |
@@ -26,6 +26,6 @@ This folder is reference material. Clone Juice Shop into a sibling folder **outs
 
 ## How to Use
 
-1. Work through each phase in order. Instructions live in each phase's `NOTES.md`.
+1. Work through each phase in order. Instructions live in each phase's `README.md`.
 2. For phases with `before/` and `after/`: copy `before/` into your working area, complete the exercise, then `diff` against `after/` to check your work.
 3. Keep the facilitator's copy of `after/` untouched — it's the reference.

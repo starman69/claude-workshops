@@ -1,4 +1,4 @@
-# Phase 3 — Project Memory
+# Phase 4 — Project Memory
 
 **Time:** 20 min
 **Goal:** Give Claude the context it needs so you don't re-explain Juice Shop's layout or the *authorized training* framing every session.
@@ -6,8 +6,8 @@
 ## Exercise
 
 1. Look at `before/` — empty. No project memory.
-2. In a real project, you'd run `/init` to scaffold a `CLAUDE.md`. For this workshop, examine `after/CLAUDE.md` to see what a good one looks like for Juice Shop.
-3. Edit it to match your local checkout — pinned Juice Shop version, Node version, test command flavor.
+2. You already ran `/init` in Phase 2 and have a starter `CLAUDE.md`. Compare it against `after/CLAUDE.md` in this folder to see what a good one looks like for Juice Shop — in particular, the authorized-training preamble is mandatory here.
+3. Edit your project's `CLAUDE.md` to match your local checkout — pinned Juice Shop version, Node version, test command flavor, and add the preamble.
 
 ## Good `CLAUDE.md` covers
 

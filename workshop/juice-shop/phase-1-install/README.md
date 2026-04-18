@@ -16,7 +16,7 @@
    - Approve/deny prompts for tool calls
    - `/` → slash commands
    - `#` → quick-append memory
-   - Claude's task list (`TodoWrite`) — watch it in long sessions; if it drifts, the session probably needs `/compact` or `/clear` (see Phase 4)
+   - Claude's task list (`TodoWrite`) — watch it in long sessions; if it drifts, the session probably needs `/compact` or `/clear` (see Phase 5)
 
 ## Checkpoint
 

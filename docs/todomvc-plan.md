@@ -21,16 +21,16 @@ Clone the target project into a **sibling folder** and run Claude Code from *the
 ```
 ~/projects/
 ├── <this-repo>/                 <-- this repo (reference only)
-└── todomvc/                     <-- your working checkout (cloned in Phase 5)
+└── todomvc/                     <-- your working checkout (cloned in Phase 2)
     └── .claude/
-        ├── settings.json        <-- from workshop/todomvc/phase-2-safety/after/
+        ├── settings.json        <-- from workshop/todomvc/phase-3-safety/after/
         └── hooks/
-            └── block-secrets.sh <-- from workshop/todomvc/phase-2-safety/after/scripts/
+            └── block-secrets.sh <-- from workshop/todomvc/phase-3-safety/after/scripts/
 ```
 
 ## Using Codex or Copilot CLI?
 
-Phases 1, 5, 8 transfer. Phases 2–4, 6–7 use Claude-specific mechanics:
+Phases 1, 2, 8 transfer. Phases 3–7 use Claude-specific mechanics:
 
 - **Memory file:** `CLAUDE.md` → `AGENTS.md` (Codex) / `.github/copilot-instructions.md` (Copilot).
 - **Hooks:** PreToolUse is Claude-only. Other CLIs rely on their sandbox/approval model plus deny-lists in native config; the `block-secrets.sh` pattern still works as a shell-level guard if you want defense in depth.
@@ -41,7 +41,7 @@ Learning goals (tool choice, trust calibration, memory hygiene, safety guards) t
 
 ## Browser MCPs
 
-TodoMVC runs as a local web UI. Install [Chrome DevTools MCP](https://github.com/ChromeDevTools/chrome-devtools-mcp) and [Playwright MCP](https://github.com/microsoft/playwright-mcp) alongside Claude Code so it can verify UI changes live during Phase 4 drills, Phase 6 Track B feature work, and Phase 7 review. Setup + when-to-use-which in [`docs/mcp-setup.md`](mcp-setup.md).
+TodoMVC runs as a local web UI. Install [Chrome DevTools MCP](https://github.com/ChromeDevTools/chrome-devtools-mcp) and [Playwright MCP](https://github.com/microsoft/playwright-mcp) alongside Claude Code so it can verify UI changes live during Phase 5 drills, Phase 6 Track B feature work, and Phase 7 review. Setup + when-to-use-which in [`docs/mcp-setup.md`](mcp-setup.md).
 
 ---
 
@@ -55,36 +55,50 @@ TodoMVC runs as a local web UI. Install [Chrome DevTools MCP](https://github.com
 
 ---
 
-## Phase 2 — Safety & Permissions (30 min) ⚠️ *critical for new users*
+## Phase 2 — Target Setup: TodoMVC React (20 min)
 
-Configure `~/.claude/settings.json` (user scope) and `.claude/settings.json` (project scope).
+- Clone `tastejs/todomvc` (or the canonical React example), `cd` in, run locally.
+- Generate starter `CLAUDE.md` via `/init`.
+- Baseline: tests pass, dev server runs, note React version + dependencies.
+
+Every phase after this runs against *this* checkout, so we set it up before safety and memory hardening.
+
+**Workshop folder:** `workshop/todomvc/phase-2-todomvc-setup/`
+- `before/` — clone instructions, expected baseline
+- `after/` — post-`/init` `CLAUDE.md`
+
+---
+
+## Phase 3 — Safety & Permissions (30 min) ⚠️ *critical for new users*
+
+Configure `~/.claude/settings.json` (user scope) and `.claude/settings.json` (project scope of the checkout from Phase 2).
 
 1. **Deny list for secrets** — block reads/edits of `.env*`, `*.pem`, `id_rsa`, `secrets/**`, `credentials.json`, and shell exfil paths (`cat .env*`, `env`, `printenv`).
 2. **PreToolUse hook** — shell-level guard (defense in depth) that exits non-zero when a tool tries to touch sensitive paths.
 3. **Allow list** — pre-approve safe commands (`npm test`, `npm run lint`, `git status`, `git diff`) to cut approval friction.
 4. **Validate** by asking Claude to read `.env` — must be blocked.
 
-**Workshop folder:** `workshop/todomvc/phase-2-safety/`
+**Workshop folder:** `workshop/todomvc/phase-3-safety/`
 - `before/` — minimal/default settings
 - `after/` — hardened `settings.json` + working `block-secrets.sh` hook
 
 ---
 
-## Phase 3 — Project Memory (20 min)
+## Phase 4 — Project Memory (20 min)
 
-- Add a project `CLAUDE.md` with: stack, test command, lint command, conventions, "don't touch" directories.
+- Augment the starter `CLAUDE.md` from Phase 2 with: stack, test command, lint command, conventions, "don't touch" directories.
 - Seed user memory (`~/.claude/`) with role/preferences.
 - Demonstrate `#` shortcut to append quick facts.
 
-**Workshop folder:** `workshop/todomvc/phase-3-memory/`
+**Workshop folder:** `workshop/todomvc/phase-4-memory/`
 - `before/` — empty (no project memory)
 - `after/` — example project `CLAUDE.md`
 
 ---
 
-## Phase 4 — Core Workflows (45 min)
+## Phase 5 — Core Workflows (45 min)
 
-Hands-on with throwaway files:
+Hands-on against the cloned TodoMVC checkout:
 
 - **Explore**: `Glob`, `Grep`, `Read` (vs. `find`/`cat` — why the dedicated tools win).
 - **Edit**: `Edit` vs. `Write`; always Read-before-Edit.
@@ -92,19 +106,7 @@ Hands-on with throwaway files:
 - **Subagents**: `Explore` for open-ended searches; `Plan` for multi-file changes.
 - **Slash commands & skills**: `/review`, `/security-review`, `/init`.
 
-**Workshop folder:** `workshop/todomvc/phase-4-workflows/exercises/`
-
----
-
-## Phase 5 — Target Setup: TodoMVC React (20 min)
-
-- Clone `tastejs/todomvc` (or the canonical React example), `cd` in, run locally.
-- Generate `CLAUDE.md` via `/init`.
-- Baseline: tests pass, dev server runs, note React version + dependencies.
-
-**Workshop folder:** `workshop/todomvc/phase-5-todomvc-setup/`
-- `before/` — clone instructions, expected baseline
-- `after/` — post-`/init` `CLAUDE.md`
+**Workshop folder:** `workshop/todomvc/phase-5-workflows/exercises/`
 
 ---
 

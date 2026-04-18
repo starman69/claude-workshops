@@ -22,7 +22,7 @@ Reference patterns: [`addyosmani/agent-skills`](https://github.com/addyosmani/ag
 
 1. **Plan** — minimum shape. What stays in `SKILL.md` vs. a helper script?
 2. **Author** `.claude/skills/scaffold-feature/SKILL.md` in your target repo. Optional: `scripts/scaffold-feature.sh` helper.
-3. **Test** — invoke for a trivial feature (e.g., a footer link). Check output against the TodoMVC workshop's Phase 3 CLAUDE.md conventions.
+3. **Test** — invoke for a trivial feature (e.g., a footer link). Check output against the TodoMVC workshop's Phase 4 CLAUDE.md conventions.
 4. **Iterate** — if output is non-idiomatic, tighten the Skill body.
 
 ## Files

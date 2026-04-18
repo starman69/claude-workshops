@@ -12,7 +12,7 @@
 ## The drill
 
 1. `/compact` — preserves the findings sheet structure while freeing noise. Use mid-audit.
-2. `/clear` — reset for a fresh audit pass (e.g., between OWASP categories). Rebuild context from Phase 3 memory + the findings template.
+2. `/clear` — reset for a fresh audit pass (e.g., between OWASP categories). Rebuild context from Phase 4 memory + the findings template.
 3. Restart `claude` if the session is genuinely wedged.
 
 ## Security-specific rules

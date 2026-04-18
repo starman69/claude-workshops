@@ -1,4 +1,4 @@
-# Phase 2 — Safety & Permissions
+# Phase 3 — Safety & Permissions
 
 **Time:** 30 min
 **Goal:** Block Claude Code from reading/writing secrets on **your machine**, pre-approve safe commands.
@@ -28,7 +28,7 @@ Expected: blocked.
 
 ## Where to put this
 
-You run Claude Code from your **target project** (Juice Shop, cloned in Phase 5), not from this repo. Pick one:
+You run Claude Code from your **target project** (Juice Shop, set up in Phase 2), not from this repo. Pick one:
 
 - **Project scope (recommended):** copy `after/settings.json` → `<target>/.claude/settings.json`, `after/scripts/block-secrets.sh` → `<target>/.claude/hooks/block-secrets.sh` (`chmod +x`). Hook path in `after/settings.json` resolves to `$CLAUDE_PROJECT_DIR/.claude/hooks/block-secrets.sh`.
 - **User scope:** put both under `~/.claude/` — one hardening covers every project (useful if you spin up more targets later).

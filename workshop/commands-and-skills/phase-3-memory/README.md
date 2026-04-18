@@ -3,7 +3,7 @@
 **Time:** 5 min
 **Goal:** confirm project memory exists and is accurate. **This phase doesn't author a new `CLAUDE.md`.**
 
-> **Prerequisite:** Phase 3 of the primary workshop ([TodoMVC](../../todomvc/phase-3-memory/NOTES.md) or [Juice Shop](../../juice-shop/phase-3-memory/NOTES.md)) must be complete. Your target repo has a `CLAUDE.md` at its root describing stack, commands, conventions, and gotchas.
+> **Prerequisite:** Phase 4 of the primary workshop ([TodoMVC](../../todomvc/phase-4-memory/README.md) or [Juice Shop](../../juice-shop/phase-4-memory/README.md)) must be complete. Your target repo has a `CLAUDE.md` at its root describing stack, commands, conventions, and gotchas.
 
 ## Verify (in your target repo)
 

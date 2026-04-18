@@ -29,7 +29,7 @@ What changed:
 ## Try it on your own
 
 1. Pick a different OWASP category (e.g., A03 Injection).
-2. Scope to 2–3 specific files from your Phase 4 auth-surface map.
+2. Scope to 2–3 specific files from your auth-surface map (Exercise 4 in this phase).
 3. Ask for the same output schema.
 4. Compare the result to the quality of "find injection bugs in this app".
 

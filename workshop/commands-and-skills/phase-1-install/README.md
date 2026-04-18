@@ -3,7 +3,7 @@
 **Time:** 5 min
 **Goal:** verify Claude Code is ready. **No install walkthrough.**
 
-> This workshop is **not self-contained**. If you've never installed Claude Code, stop here and do Phase 1 of the [TodoMVC workshop](../../todomvc/phase-1-install/NOTES.md) or [Juice Shop workshop](../../juice-shop/phase-1-install/NOTES.md) first — they walk through install, authentication, and the UI tour.
+> This workshop is **not self-contained**. If you've never installed Claude Code, stop here and do Phase 1 of the [TodoMVC workshop](../../todomvc/phase-1-install/README.md) or [Juice Shop workshop](../../juice-shop/phase-1-install/README.md) first — they walk through install, authentication, and the UI tour.
 
 ## Check
 

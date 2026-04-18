@@ -13,10 +13,10 @@ This folder is reference material. Clone TodoMVC into a sibling folder **outside
 | Phase | Folder | Has before/after? |
 |-------|--------|-------------------|
 | 1. Install & Authenticate | `phase-1-install/` | — (activity) |
-| 2. Safety & Permissions | `phase-2-safety/` | ✅ |
-| 3. Project Memory | `phase-3-memory/` | ✅ |
-| 4. Core Workflows | `phase-4-workflows/` | — (exercises) |
-| 5. TodoMVC Setup | `phase-5-todomvc-setup/` | ✅ |
+| 2. TodoMVC Setup | `phase-2-todomvc-setup/` | ✅ |
+| 3. Safety & Permissions | `phase-3-safety/` | ✅ |
+| 4. Project Memory | `phase-4-memory/` | ✅ |
+| 5. Core Workflows | `phase-5-workflows/` | — (exercises) |
 | 6a. React Upgrade | `phase-6-demo/track-a-react-upgrade/` | ✅ |
 | 6b. Feature Update | `phase-6-demo/track-b-feature-update/` | ✅ |
 | 7. Review & Commit | `phase-7-review/` | — (activity) |
@@ -24,6 +24,6 @@ This folder is reference material. Clone TodoMVC into a sibling folder **outside
 
 ## How to Use
 
-1. Work through each phase in order. Instructions live in each phase's `NOTES.md`.
+1. Work through each phase in order. Instructions live in each phase's `README.md`.
 2. For phases with `before/` and `after/`: start by copying `before/` into your working area, complete the exercise, then `diff` against `after/` to check your work.
 3. Keep the facilitator's copy of `after/` untouched — it's the reference.

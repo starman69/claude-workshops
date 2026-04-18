@@ -20,7 +20,7 @@
 
 ## What to watch for
 
-- After `/clear`, does Claude re-read `CLAUDE.md` (Phase 3)? It should — that's why memory matters.
+- After `/clear`, does Claude re-read `CLAUDE.md` (Phase 4)? It should — that's why memory matters.
 - Your shell state (`cd`, `npm run dev` process) persists across `/clear`. Only Claude's context resets.
 - Quick-appended `#` memories survive `/clear`; in-thread chat does not.
 

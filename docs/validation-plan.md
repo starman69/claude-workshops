@@ -16,8 +16,8 @@ The team validates this in two modes:
 ### 1. Structure Linter (deterministic)
 Shell-only.
 
-- `NOTES.md` ≤60 lines
-- Every phase folder has a `NOTES.md`
+- `README.md` ≤60 lines
+- Every phase folder has a `README.md`
 - Reference files use `.snippet`/`.example`/`-legacy`/`-modern` suffixes
 - Scripts under `after/scripts/` are executable
 - No files in repo root except `CLAUDE.md` + `README.md` (directories excluded)
@@ -50,7 +50,7 @@ Primarily for Juice Shop + Commands & Skills. Split across tiers.
 ### 4. Currency Researcher (LLM + web)
 Slow; runs weekly-ish or before each session.
 
-Extracts verifiable claims from plan files (`docs/*-plan.md`) and phase `NOTES.md` — version numbers, install commands, external repo references, feature descriptions — then verifies each against current upstream state. No hardcoded checklist here: the plan files are the source of truth, so a new claim is automatically re-checked on the next run and a removed claim stops being validated.
+Extracts verifiable claims from plan files (`docs/*-plan.md`) and phase `README.md` — version numbers, install commands, external repo references, feature descriptions — then verifies each against current upstream state. No hardcoded checklist here: the plan files are the source of truth, so a new claim is automatically re-checked on the next run and a removed claim stops being validated.
 
 Implementation: `Agent` tool, `general-purpose` or `researcher` subagent, `WebFetch` / `WebSearch` enabled. Prompt template instructs the agent to extract claims, classify each as still-valid / drifted / unknown, and cite the upstream source.
 
@@ -87,7 +87,7 @@ Every specialist emits:
 
 ### Waivers
 
-False positives and legitimate exceptions (e.g., a `NOTES.md` that genuinely needs >60 lines) are suppressed with:
+False positives and legitimate exceptions (e.g., a `README.md` that genuinely needs >60 lines) are suppressed with:
 
 - Inline marker in markdown: `<!-- validation:allow <rule> reason="..." -->`
 - Or a `.validation-ignore` file listing `<path>:<rule> — <reason>` entries
@@ -129,7 +129,7 @@ A bash or tiny Python wrapper that runs A + B in sequence, merges outputs into o
 Optional: `.github/workflows/validation.yml` — A on every PR, B weekly via cron.
 
 ### Phase D — Prompt-quality regression (later, ambitious)
-Harness that runs each exercise's sample prompt via `claude --print` against a hardened fixture and scores output against expected shape. Validates "the prompts in `NOTES.md` still produce reasonable output" — *not* "the learner's interactive flow still works." End-to-end session fidelity stays a human-review task.
+Harness that runs each exercise's sample prompt via `claude --print` against a hardened fixture and scores output against expected shape. Validates "the prompts in `README.md` still produce reasonable output" — *not* "the learner's interactive flow still works." End-to-end session fidelity stays a human-review task.
 
 Requires a sandbox, prompt-execution budget, and an evaluator (rule-based or LLM). Defer until A–C catch the cheap bugs, and run its own design review first.
 
@@ -152,7 +152,7 @@ Then **Phase B**. The Currency Researcher is essentially reusable from the revie
 ## Next session — resume checklist
 
 1. Read this file top to bottom.
-2. Skim the most recent run of the existing ad-hoc verification in bash (`find workshop -name NOTES.md -exec wc -l {} \;`, etc.) to remember what's currently being checked manually.
+2. Skim the most recent run of the existing ad-hoc verification in bash (`find workshop -name README.md -exec wc -l {} \;`, etc.) to remember what's currently being checked manually.
 3. Decide: Phase A all three scripts, or start with just `structure.sh` to feel out the shape?
 4. If Phase A: create `scripts/validation/` and write one script at a time. Test against the current repo state — should produce zero findings (the repo is currently clean).
 5. If wiring CI: ensure the repo has a git remote + actions configured. Current repo state (per environment info) is not a git repo — so CI is deferred.

@@ -1,7 +1,7 @@
-# Phase 5 — Juice Shop Setup
+# Phase 2 — Juice Shop Setup
 
 **Time:** 20 min
-**Goal:** Working local Juice Shop with the score-board reachable, plus a `CLAUDE.md`.
+**Goal:** Working local Juice Shop with the score-board reachable, plus a `CLAUDE.md`. Later phases (safety, memory, workflow drills, audit) all run against *this* checkout.
 
 ## Steps
 
@@ -24,7 +24,7 @@
 
 4. Record the baseline in `before/baseline.md` (template provided).
 
-5. In a fresh Claude Code session inside the repo: run `/init`. Review the generated `CLAUDE.md`, compare with `after/CLAUDE.md.example`. Ensure the authorized-training preamble from Phase 3 is carried over.
+5. In a fresh Claude Code session inside the repo: run `/init`. Review the generated `CLAUDE.md`, compare with `after/CLAUDE.md.example`. You'll add the authorized-training preamble and the rest of the project details in Phase 4 (Memory).
 
 ## Compare
 

@@ -1,4 +1,4 @@
-# Phase 3 — Project Memory
+# Phase 4 — Project Memory
 
 **Time:** 20 min
 **Goal:** Give Claude the context it needs so you don't re-explain the project every session.
@@ -6,8 +6,8 @@
 ## Exercise
 
 1. Look at `before/` — empty. No project memory.
-2. In a real project, you'd run `/init` to scaffold a `CLAUDE.md`. For this workshop, examine `after/CLAUDE.md` to see what a good one looks like.
-3. Edit it to match your project's reality — test command, lint command, known pitfalls, directories to avoid.
+2. You already ran `/init` in Phase 2 and have a starter `CLAUDE.md`. Compare it against `after/CLAUDE.md` in this folder to see what a good one looks like once augmented.
+3. Edit your project's `CLAUDE.md` to match reality — test command, lint command, known pitfalls, directories to avoid.
 
 ## Good `CLAUDE.md` covers
 

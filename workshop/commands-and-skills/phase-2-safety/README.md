@@ -3,7 +3,7 @@
 **Time:** 5 min
 **Goal:** confirm your existing permission hardening is in place. **This phase doesn't configure anything new.**
 
-> **Prerequisite:** Phase 2 of the [TodoMVC workshop](../../todomvc/phase-2-safety/NOTES.md) or [Juice Shop workshop](../../juice-shop/phase-2-safety/NOTES.md) must be complete. Your target repo's `.claude/settings.json` has the allow/deny lists, and `.claude/hooks/block-secrets.sh` is installed and executable.
+> **Prerequisite:** Phase 3 of the [TodoMVC workshop](../../todomvc/phase-3-safety/README.md) or [Juice Shop workshop](../../juice-shop/phase-3-safety/README.md) must be complete. Your target repo's `.claude/settings.json` has the allow/deny lists, and `.claude/hooks/block-secrets.sh` is installed and executable.
 
 ## Verify (in your target repo)
 

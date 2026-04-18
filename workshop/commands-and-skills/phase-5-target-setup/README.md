@@ -1,9 +1,9 @@
 # Phase 5 — Target Setup (prerequisite check)
 
 **Time:** 10 min
-**Goal:** confirm your target repo(s) and prior workshop artifacts are in place. **No cloning or install here** — if those aren't done, go back to the primary workshop's Phase 5.
+**Goal:** confirm your target repo(s) and prior workshop artifacts are in place. **No cloning or install here** — if those aren't done, go back to the primary workshop's Phase 2.
 
-> **Prerequisite:** Phase 5 of the primary workshop complete. Your target repo is cloned, dependencies installed, dev/test server runs, and you've captured the baseline.
+> **Prerequisite:** Phase 2 of the primary workshop complete. Your target repo is cloned, dependencies installed, dev/test server runs, and you've captured the baseline.
 
 ## Pick your target(s)
 
@@ -13,9 +13,9 @@
 
 ## Verify (per target)
 
-- Repo cloned at `~/projects/<target>/` (done in that module's Phase 5)
+- Repo cloned at `~/projects/<target>/` (done in that module's Phase 2)
 - Dev/test server runs (`npm run dev` for TodoMVC, `npm start` for Juice Shop)
-- `.claude/settings.json` in place (ported during the primary module's Phase 2)
+- `.claude/settings.json` in place (ported during the primary module's Phase 3)
 - `.claude/hooks/block-secrets.sh` executable
 - `CLAUDE.md` at the repo root
 - `/help` works when run from the target directory and is free of stale experiments

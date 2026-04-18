@@ -1,7 +1,7 @@
-# Phase 5 — TodoMVC Setup
+# Phase 2 — TodoMVC Setup
 
 **Time:** 20 min
-**Goal:** Working TodoMVC React clone with baseline green tests and a `CLAUDE.md`.
+**Goal:** Working TodoMVC React clone with baseline green tests and a `CLAUDE.md`. Later phases (safety, memory, workflow drills) all run against *this* checkout.
 
 ## Steps
 

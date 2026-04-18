@@ -13,7 +13,7 @@
 ## Recovery moves — when Claude gets stuck
 
 - **Interrupt** (esc) — stop mid-tool-call if you see it heading the wrong way
-- **Rephrase with anchors** — file:line + the change + what not to touch (see `phase-4-workflows/exercises/05-prompting-craft.md`)
+- **Rephrase with anchors** — file:line + the change + what not to touch (see `phase-5-workflows/exercises/05-prompting-craft.md`)
 - **Plan mode** — force a written plan before more edits
 - **`/compact`** — keep the thread, shed noise
 - **`/clear`** — fresh context beats arguing with a confused session

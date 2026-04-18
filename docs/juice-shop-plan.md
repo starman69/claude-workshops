@@ -23,18 +23,18 @@ Clone Juice Shop into a **sibling folder** and run Claude Code from *there*. `af
 ```
 ~/projects/
 ├── <this-repo>/                 <-- this repo (reference only)
-└── juice-shop/                  <-- your working checkout (cloned in Phase 5)
+└── juice-shop/                  <-- your working checkout (cloned in Phase 2)
     └── .claude/
-        ├── settings.json        <-- from workshop/juice-shop/phase-2-safety/after/
+        ├── settings.json        <-- from workshop/juice-shop/phase-3-safety/after/
         └── hooks/
-            └── block-secrets.sh <-- from workshop/juice-shop/phase-2-safety/after/scripts/
+            └── block-secrets.sh <-- from workshop/juice-shop/phase-3-safety/after/scripts/
 ```
 
 ## Using Codex or Copilot CLI?
 
-Phases 1, 5, 8 transfer. Phases 2–4, 6–7 use Claude-specific mechanics:
+Phases 1, 2, 8 transfer. Phases 3–7 use Claude-specific mechanics:
 
-- **Memory file:** `CLAUDE.md` → `AGENTS.md` (Codex) / `.github/copilot-instructions.md` (Copilot). The authorized-training preamble from Phase 3 still belongs at the top of whichever file.
+- **Memory file:** `CLAUDE.md` → `AGENTS.md` (Codex) / `.github/copilot-instructions.md` (Copilot). The authorized-training preamble from Phase 4 still belongs at the top of whichever file.
 - **Hooks:** PreToolUse is Claude-only. Other CLIs rely on their sandbox/approval model plus deny-lists in native config; the `block-secrets.sh` pattern still works as a shell-level guard.
 - **Plan mode / subagents:** Claude UX. Emulate by prompting explicitly — "don't modify anything, just plan", "use ripgrep to enumerate X".
 - **Slash commands:** `/security-review`, `/init` are Claude-only. Write equivalent prompts (for security review: "audit this diff for OWASP Top 10 issues; flag file:line + severity; no exploit payloads").
@@ -43,7 +43,7 @@ Learning goals (trust calibration, over-claim vs. miss detection, memory hygiene
 
 ## Browser MCPs
 
-Juice Shop runs as a local web UI with a score-board at `/#/score-board`. Install [Chrome DevTools MCP](https://github.com/ChromeDevTools/chrome-devtools-mcp) and [Playwright MCP](https://github.com/microsoft/playwright-mcp) alongside Claude Code to ground-truth Track A findings against the score-board and to verify Track B fixes. Setup + safety (stay on `localhost`) in [`docs/mcp-setup.md`](mcp-setup.md).
+Juice Shop runs as a local web UI with a score-board at `/#/score-board`. Install [Chrome DevTools MCP](https://github.com/ChromeDevTools/chrome-devtools-mcp) and [Playwright MCP](https://github.com/microsoft/playwright-mcp) alongside Claude Code so Phase 5 drills, Phase 6 tracks, and Phase 7 review can ground-truth findings against the score-board. Setup + safety (stay on `localhost`) in [`docs/mcp-setup.md`](mcp-setup.md).
 
 ---
 
@@ -57,9 +57,24 @@ Juice Shop runs as a local web UI with a score-board at `/#/score-board`. Instal
 
 ---
 
-## Phase 2 — Safety & Permissions (30 min) ⚠️ *critical for new users*
+## Phase 2 — Target Setup: OWASP Juice Shop (20 min)
 
-Configure `~/.claude/settings.json` (user scope) and `.claude/settings.json` (project scope).
+- Clone `juice-shop/juice-shop`, `npm install`, `npm start`.
+- Open `http://localhost:3000`, confirm app loads and `/#/score-board` is reachable.
+- Baseline: Juice Shop version, Node version, challenge count, smoke test of login + product listing.
+- Generate starter `CLAUDE.md` via `/init` — the authorized-training preamble is added in Phase 4.
+
+Every phase after this runs against *this* checkout, so we set it up before safety and memory hardening.
+
+**Workshop folder:** `workshop/juice-shop/phase-2-juice-shop-setup/`
+- `before/` — baseline template to fill in
+- `after/` — example filled baseline + post-`/init` `CLAUDE.md`
+
+---
+
+## Phase 3 — Safety & Permissions (30 min) ⚠️ *critical for new users*
+
+Configure `~/.claude/settings.json` (user scope) and `.claude/settings.json` (project scope of the checkout from Phase 2).
 
 1. **Deny list for secrets** — block reads/edits of `.env*`, `*.pem`, `id_rsa`, `secrets/**`, `credentials.json`, and shell exfil paths (`cat .env*`, `env`, `printenv`).
 2. **PreToolUse hook** — shell-level guard (defense in depth) that exits non-zero when a tool tries to touch sensitive paths.
@@ -68,27 +83,27 @@ Configure `~/.claude/settings.json` (user scope) and `.claude/settings.json` (pr
 
 ⚠️ Juice Shop ships with intentional dummy secrets, weak JWT keys, and sample `.env` files *as part of the training target*. The hook still protects **your real credentials** on **your machine**. Do not disable it because the target is a training app.
 
-**Workshop folder:** `workshop/juice-shop/phase-2-safety/`
+**Workshop folder:** `workshop/juice-shop/phase-3-safety/`
 - `before/` — minimal/default settings
 - `after/` — hardened `settings.json` + working `block-secrets.sh` hook
 
 ---
 
-## Phase 3 — Project Memory (20 min)
+## Phase 4 — Project Memory (20 min)
 
-- Add a project `CLAUDE.md` for Juice Shop: stack (Node/Express/Angular/SQLite+Sequelize), commands (`npm start`, `npm test`, `npm run frisby`), key directories, "don't touch" paths.
+- Augment the starter `CLAUDE.md` from Phase 2 for Juice Shop: stack (Node/Express/Angular/SQLite+Sequelize), commands (`npm start`, `npm test`, `npm run frisby`), key directories, "don't touch" paths.
 - Preamble must frame the work as authorized security training against an intentionally vulnerable app.
 - Seed user memory with role/preferences; use `#` to append quick facts.
 
-**Workshop folder:** `workshop/juice-shop/phase-3-memory/`
+**Workshop folder:** `workshop/juice-shop/phase-4-memory/`
 - `before/` — empty (no project memory)
 - `after/` — example project `CLAUDE.md` with training preamble
 
 ---
 
-## Phase 4 — Core Workflows (45 min)
+## Phase 5 — Core Workflows (45 min)
 
-Hands-on with Claude Code tools, plus two security-specific drills:
+Hands-on against the cloned Juice Shop checkout, plus two security-specific drills:
 
 - **Explore**: `Glob`, `Grep`, `Read` (vs. `find`/`cat`).
 - **Edit**: `Edit` vs. `Write`; always Read-before-Edit.
@@ -97,20 +112,7 @@ Hands-on with Claude Code tools, plus two security-specific drills:
 - **Auth-surface map**: `Explore` subagent to map login, JWT middleware, role checks.
 - **Slash commands**: `/review`, `/security-review`, `/init`.
 
-**Workshop folder:** `workshop/juice-shop/phase-4-workflows/exercises/`
-
----
-
-## Phase 5 — Target Setup: OWASP Juice Shop (20 min)
-
-- Clone `juice-shop/juice-shop`, `npm install`, `npm start`.
-- Open `http://localhost:3000`, confirm app loads and `/#/score-board` is reachable.
-- Baseline: Juice Shop version, Node version, challenge count, smoke test of login + product listing.
-- Generate `CLAUDE.md` via `/init`.
-
-**Workshop folder:** `workshop/juice-shop/phase-5-juice-shop-setup/`
-- `before/` — baseline template to fill in
-- `after/` — example filled baseline + post-`/init` `CLAUDE.md`
+**Workshop folder:** `workshop/juice-shop/phase-5-workflows/exercises/`
 
 ---
 
