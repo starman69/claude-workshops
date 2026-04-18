@@ -1,6 +1,6 @@
 # Phase 6 — Track B: TodoMVC Skill (scaffold-feature)
 
-**Time:** 60–75 min · **Target:** your TodoMVC checkout.
+**Time:** 45–60 min · **Target:** your TodoMVC checkout.
 **Goal:** author a **Claude Code Skill** that scaffolds a new TodoMVC feature (component + test + wiring), and understand when a Skill beats a custom command. Recommended after Track A so the command-vs-Skill contrast is fresh.
 
 ## Skills vs. commands

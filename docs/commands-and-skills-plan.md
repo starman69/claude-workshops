@@ -4,7 +4,7 @@
 
 **Audience:** developers who've completed the TodoMVC or Juice Shop workshop (or are otherwise comfortable with Claude Code basics). This is an **intermediate** module — it assumes you already have install + safety + memory + workflows in muscle memory.
 
-**Duration:** ~3 hours if you do one target; ~5 hours if you do both.
+**Duration:** ~3 hours if you do one target; ~4 hours if you do both (the second command/Skill reuses structure from the first).
 **Outcome:** one custom slash command + one Skill committed to your target repo's `.claude/`, and working intuition for the command / Skill / prompt decision.
 
 **Module folder:** [`workshop/commands-and-skills/`](../workshop/commands-and-skills/)
@@ -82,7 +82,7 @@ Confirm the target repo runs, `.claude/` exists, `/help` shows no stale experime
 
 ---
 
-## Phase 6 — Demo Tracks (60–90 min per track)
+## Phase 6 — Demo Tracks (30–60 min per track)
 
 ### Track A — TodoMVC Custom Slash Command
 `/todomvc-spec-check` — runs spec tests, groups by TodoMVC category.

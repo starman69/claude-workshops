@@ -1,6 +1,6 @@
 # Phase 6 — Track A: TodoMVC Custom Slash Command
 
-**Time:** 45–60 min · **Target:** your TodoMVC checkout (from the primary TodoMVC workshop).
+**Time:** 30–45 min · **Target:** your TodoMVC checkout (from the primary TodoMVC workshop).
 **Goal:** author a **custom slash command** specific to TodoMVC workflows, and understand when a custom command beats a plain prompt.
 
 ## Why custom commands

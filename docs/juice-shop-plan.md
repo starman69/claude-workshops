@@ -5,7 +5,7 @@
 **Goal:** Teach AI-assisted **security vulnerability discovery** against OWASP Juice Shop, landing on a written findings report and one concrete code-level fix.
 
 **Audience:** Developers new to AI-assisted security review. Prior security experience helpful but not required.
-**Duration:** ~4 hours (can be split across sessions).
+**Duration:** ~4–4.5 hours (can be split across sessions).
 **Outcome:** Hardened Claude Code config, project `CLAUDE.md` for Juice Shop, an OWASP Top 10 findings report, and a repro recipe + fix snippet for one vulnerability.
 
 > Next step after this module: the **[Commands & Skills workshop](../docs/commands-and-skills-plan.md)** uses this Juice Shop checkout as a target for intermediate Claude Code extensibility (custom audit commands, Skills).
@@ -101,7 +101,7 @@ Configure `~/.claude/settings.json` (user scope) and `.claude/settings.json` (pr
 
 ---
 
-## Phase 5 — Core Workflows (45 min)
+## Phase 5 — Core Workflows (60 min)
 
 Hands-on against the cloned Juice Shop checkout, plus two security-specific drills:
 

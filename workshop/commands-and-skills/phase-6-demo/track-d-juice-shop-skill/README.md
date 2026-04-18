@@ -1,6 +1,6 @@
 # Phase 6 — Track D: Juice Shop Audit Skill (audit-route)
 
-**Time:** 60–75 min · **Target:** your Juice Shop checkout.
+**Time:** 45–60 min (30–45 if you just did Track B) · **Target:** your Juice Shop checkout.
 **Goal:** author a **Skill** that audits a route end-to-end (route → controller → sink) and emits a structured finding. Recommended after Track C so the command-vs-Skill contrast is fresh.
 
 ## Skills vs. commands (security flavor)

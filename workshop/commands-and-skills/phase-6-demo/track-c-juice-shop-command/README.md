@@ -1,6 +1,6 @@
 # Phase 6 — Track C: Juice Shop Custom Security-Audit Command
 
-**Time:** 45–60 min · **Target:** your Juice Shop checkout (from the primary Juice Shop workshop).
+**Time:** 30–45 min (20–30 if you just did Track A) · **Target:** your Juice Shop checkout (from the primary Juice Shop workshop).
 **Goal:** author a **custom slash command** that runs a scoped OWASP audit with consistent report-level output.
 
 ## Why

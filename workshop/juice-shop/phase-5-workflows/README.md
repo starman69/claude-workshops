@@ -1,6 +1,6 @@
 # Phase 5 — Core Workflows
 
-**Time:** 45 min
+**Time:** 60 min
 **Goal:** Fluency with the tools you'll use every day, plus two security-specific drills.
 
 ## Exercises (in `exercises/`)
