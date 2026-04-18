@@ -13,10 +13,57 @@ Follow each project's README for the canonical command; the Claude Code pattern 
 
 ```bash
 claude mcp add chrome-devtools -- npx chrome-devtools-mcp@latest
-claude mcp add playwright       -- npx @playwright/mcp@latest
+claude mcp add playwright      -- npx @playwright/mcp@latest
 ```
 
 Verify with `claude mcp list` — both servers should appear active in a fresh session.
+
+## Connect to an existing browser (CDP)
+
+By default both servers launch their own browser. If you'd rather have Claude drive the Chrome window you're already logged into (dev tools open, extensions, a seeded session), start Chrome with the remote debugging port and point the MCP servers at it via Chrome DevTools Protocol.
+
+**1. Launch Chrome with remote debugging enabled** (use a separate profile dir so it doesn't clash with your normal browser):
+
+```bash
+# macOS
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
+  --remote-debugging-port=9222 --user-data-dir=/tmp/chrome-cdp
+
+# Linux
+google-chrome --remote-debugging-port=9222 --user-data-dir=/tmp/chrome-cdp
+
+# Windows (PowerShell)
+& "C:\Program Files\Google\Chrome\Application\chrome.exe" `
+  --remote-debugging-port=9222 --user-data-dir=$env:TEMP\chrome-cdp
+```
+
+Confirm it's up: `curl http://127.0.0.1:9222/json/version` should return JSON.
+
+**2. Register the MCP servers with CDP flags** — Chrome DevTools MCP uses `--browser-url`, Playwright MCP uses `--cdp-endpoint`:
+
+```bash
+claude mcp add chrome-devtools -- npx chrome-devtools-mcp@latest --browser-url=http://127.0.0.1:9222
+claude mcp add playwright      -- npx @playwright/mcp@latest --cdp-endpoint=http://127.0.0.1:9222
+```
+
+**3. Or commit a project-scoped `.mcp.json`** so everyone on the workshop gets the same wiring:
+
+```json
+{
+  "mcpServers": {
+    "chrome-devtools": {
+      "command": "npx",
+      "args": ["chrome-devtools-mcp@latest", "--browser-url=http://127.0.0.1:9222"]
+    },
+    "playwright": {
+      "command": "npx",
+      "args": ["@playwright/mcp@latest", "--cdp-endpoint=http://127.0.0.1:9222"]
+    }
+  }
+}
+```
+
+Both servers share the same Chrome instance — a tab opened by one is visible to the other. If Chrome isn't running on `:9222` when a tool fires, the call will fail; restart Chrome with the flag above.
 
 ## When to use which
 
