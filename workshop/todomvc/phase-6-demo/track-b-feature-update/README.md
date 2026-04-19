@@ -7,7 +7,7 @@
 
 - **Dark mode toggle** — header button, persists to localStorage, CSS variable swap
 - **Persistence** — canonical TodoMVC resets on refresh. Wire the reducer to localStorage (simplest) or IndexedDB via `idb-keyval` (async-safe).
-- **Due date** — optional ISO date per todo, shown in item, sorts by due-soonest
+- **Sort by due date** — the due-date field was added in Phase 5's plan-mode exercise. Build on it: add a sort toggle (default/by-due-soonest), keep items without a due date at the bottom, write tests that cover the edge cases (no dates set, ties, past-due ordering).
 
 ## Workflow
 
