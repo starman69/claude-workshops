@@ -33,7 +33,7 @@ Not every phase has before/after — install, live workflow drills, review, and 
 
 ## What to avoid
 
-- **Don't bloat.** A workshop phase is 15–90 minutes of content, not a tutorial series. If a `README.md` is over ~60 lines, trim it.
+- **Don't bloat, but don't starve learning either.** A workshop phase is 15–90 minutes of content, not a tutorial series. Trim filler and repetition, but keep depth where a concept genuinely needs it — these READMEs exist to teach. Length is a signal to review, not a hard cap.
 - **Don't add new phases proactively.** Eight is the spine. Tracks inside a phase are fine (see `phase-6-demo/track-a-*` vs `track-b-*`).
 - **Don't put working files in the repo root.** Only `CLAUDE.md` lives there. Everything else goes under `docs/` or `workshop/`.
 - **Don't generate new docs unless asked.** The user explicitly approves each new plan or prompt.
