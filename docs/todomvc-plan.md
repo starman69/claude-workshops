@@ -112,12 +112,14 @@ Hands-on against the cloned TodoMVC checkout:
 
 ## Phase 6 — Demo Track (pick ONE or do both) (60–90 min)
 
-### Track A — React Upgrade
+### Track A — Modernize Build Tool + React
 
-1. In plan mode, ask Claude to audit React version and produce a migration plan to latest stable.
-2. Review plan → accept.
-3. Execute: update `package.json`, address breaking changes (`ReactDOM.render` → `createRoot`, Strict Mode, deprecated lifecycles), fix types.
-4. Verify: install, typecheck, lint, tests, manual browser smoke test of add/toggle/delete/filter/clear-completed.
+Two sequential plan-mode passes on the same codebase — **don't bundle them**. The point is two low-stakes reps of *plan → review → execute* on related-but-distinct changes, with a clean commit in between so step 2 is bisectable if it breaks.
+
+1. **webpack 5 → Vite 5** (and Jest → Vitest). Vite supports React 17, so doing the toolchain swap first isolates failure modes — if a test fails after step 2, you know it's React, not the build tool.
+2. **React 17 → 18.** `ReactDOM.render` → `createRoot`, wrap in `<StrictMode>`, bump `@testing-library/react`.
+
+For each step: plan mode → review (push back on excess) → accept → execute → verify (`npm run lint`, `npm test`, `npm run build`, browser smoke test of add/toggle/delete/filter/clear-completed) → commit.
 
 **Workshop folder:** `workshop/todomvc/phase-6-demo/track-a-react-upgrade/`
 

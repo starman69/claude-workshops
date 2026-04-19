@@ -8,13 +8,14 @@
   - [ ] Preference persists across reloads (localStorage key: `todomvc-theme`)
   - [ ] Initial load respects `prefers-color-scheme` media query if no preference saved
   - [ ] All existing TodoMVC spec tests still pass
+  - [ ] Playwright E2E validates the theme actually renders — assert computed `background-color` and `color` on `body` (and the todo list container) change between light and dark, toggle flips them, and a reload preserves the dark values. Computed-style assertions catch the "class flips but CSS vars never wired" failure mode that unit tests miss.
 - **Files likely to change:**
-  - `src/App.tsx` (add theme provider/state)
-  - `src/components/Header.tsx` (add toggle button)
-  - `src/index.css` (CSS variables for both themes)
+  - `src/todo/app.jsx` (add theme provider/state)
+  - `src/todo/components/header.jsx` (add toggle button)
+  - `src/todo/app.css` (CSS variables for both themes)
 - **New files:**
-  - `src/hooks/useTheme.ts`
-  - `src/hooks/useTheme.test.ts`
+  - `src/todo/hooks/useTheme.js`
+  - `src/todo/hooks/useTheme.test.js`
 - **Risks:**
   - Breaking snapshot tests — review each snapshot diff intentionally
   - localStorage quota (negligible for one string)

@@ -2,7 +2,7 @@
 
 **Prompt to try:**
 
-> Where is the `toggleTodo` function defined and called?
+> Where is `toggleItem` defined and called?
 
 **What to watch for:**
 

@@ -1,22 +1,24 @@
 # TodoMVC React — Project Memory
 
-This is what `/init` should produce (tweak to match reality).
+This is what `/init` should produce after Phase 2 (tweak to match reality).
 
 ## Stack
-- React 17 (upgrade target for Track A: React 18+)
-- Jest + React Testing Library
-- CRA or Vite (confirm)
+- React 17 (Phase 6 upgrades to 18+)
+- webpack 5 + webpack-dev-server (Phase 6 migrates to Vite)
+- Jest + React Testing Library (scaffolded in Phase 2)
+- ESLint — `eslint:recommended` only (Phase 6 tightens this)
 
 ## Commands
-- `npm ci`, `npm test`, `npm run lint`, `npm run build`, `npm run dev`
+- `npm ci`, `npm run dev` (:8080), `npm test`, `npm run lint`, `npm run build`
 
 ## Conventions
-- Components in `src/components/`
-- Co-located `*.test.jsx` or `*.test.tsx`
+- Components in `src/`
+- Co-located `*.test.jsx`
 
 ## Known pitfalls
-- TodoMVC spec tests are strict — don't change URL fragment routing
-- Current canonical example has no persistence (`useReducer` only) — adding it is a valid Track B feature
+- TodoMVC spec tests are strict — don't change URL fragment routing (`#/`, `#/active`, `#/completed`)
+- Canonical example has no persistence — adding it is a valid Phase 6 Track B feature
 
 ## Don't touch
-- `node_modules/`, `build/`, `dist/`
+- `node_modules/`, `dist/`
+- webpack configs (Phase 6 replaces them)

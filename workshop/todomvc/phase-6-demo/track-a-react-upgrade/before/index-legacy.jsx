@@ -1,10 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import React from "react";
+import { render } from "react-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+import { App } from "./todo/app";
+import "todomvc-app-css/index.css";
+import "todomvc-common/base.css";
+
+render(
+    <HashRouter>
+        <Routes>
+            <Route path="*" element={<App />} />
+        </Routes>
+    </HashRouter>,
+    document.getElementById("root")
 );

@@ -1,11 +1,17 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import App from './App';
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { HashRouter, Route, Routes } from "react-router-dom";
 
-const container = document.getElementById('root');
-const root = createRoot(container);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+import { App } from "./todo/app";
+import "todomvc-app-css/index.css";
+import "todomvc-common/base.css";
+
+createRoot(document.getElementById("root")).render(
+    <StrictMode>
+        <HashRouter>
+            <Routes>
+                <Route path="*" element={<App />} />
+            </Routes>
+        </HashRouter>
+    </StrictMode>
 );

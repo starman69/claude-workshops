@@ -1,5 +1,5 @@
 import { renderHook, act } from '@testing-library/react';
-import { useTheme } from '../hooks/useTheme';
+import { useTheme } from './useTheme';
 
 describe('useTheme', () => {
   beforeEach(() => {
